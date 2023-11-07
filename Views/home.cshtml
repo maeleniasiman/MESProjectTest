@@ -1,0 +1,11 @@
+﻿@using Umbraco.Cms.Core.Models;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Home>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "master.cshtml";
+	
+}
+
+<div class="container pt-5">
+		@await Html.GetBlockListHtmlAsync(Umbraco.AssignedContentItem, "blockList");
+</div>

@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="App_Plugins\BlockListElements\HeroBanner\HeroBanner.html" />
+    <Content Include="App_Plugins\BlockListElements\TwoColumn\TwoColumn.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClientDependency-Mvc5" Version="1.9.3" />
+    <PackageReference Include="System.Collections" Version="4.3.0" />
+    <PackageReference Include="Umbraco.Cms" Version="11.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Opt-in to app-local ICU to ensure consistent globalization APIs across different platforms -->
+    <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="68.2.0.9" />
+    <PackageReference Include="Umbraco.Forms" Version="11.0.0" />
+    <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="68.2.0.9" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="Models\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Views\MacroPartials\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="App_Plugins\BlockListElements\HeroBanner\image.controller.js" />
+    <None Include="App_Plugins\BlockListElements\HeroBanner\richtext.controller.js" />
+    <None Include="App_Plugins\BlockListElements\package.manifest" />
+    <None Include="App_Plugins\BlockListElements\TwoColumn\twocolumn-image.controller.js" />
+    <None Include="App_Plugins\BlockListElements\TwoColumn\twocolumn.controller.js" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <!-- Razor files are needed for the backoffice to work correctly -->
+    <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- Remove RazorCompileOnBuild and RazorCompileOnPublish when not using ModelsMode InMemoryAuto -->
+    <RazorCompileOnBuild>false</RazorCompileOnBuild>
+    <RazorCompileOnPublish>false</RazorCompileOnPublish>
+  </PropertyGroup>
+  
+</Project>

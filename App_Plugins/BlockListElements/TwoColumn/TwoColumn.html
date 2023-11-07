@@ -1,0 +1,25 @@
+﻿<style>
+    .text {
+        position: relative;
+        display: block;
+        cursor: pointer;
+        line-height: 1.5;
+        font-family: Calibri;
+        margin: 20px 0;
+        font-weight: 300;
+    }
+</style>
+<h5>Two Column Content</h5>
+<div ng-controller="tcImageController as vm" ng-click="block.edit()" class="blockelement__draggable-element">
+    <img ng-src="{{vm.imagePath}}" />
+</div>
+<div ng-controller="twoColumnController as vm" class="blockelement__draggable-element" ng-click="block.edit()">
+    <div class="text" ng-bind-html="vm.titleContent" style="background-color: #{{ vm.backgroundColor }}">
+
+    </div>
+</div>
+<div ng-controller="twoColumnController as vm" class="blockelement__draggable-element" ng-click="block.edit()">
+    <div class="text" ng-bind-html="vm.textContent" style="background-color: #{{ vm.backgroundColor }}">
+
+    </div>
+</div>

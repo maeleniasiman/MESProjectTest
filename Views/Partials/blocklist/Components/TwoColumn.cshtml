@@ -1,0 +1,30 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	var content = (ContentModels.TwoColumn)Model.Content;
+}
+
+@if (content.ImagePosition == "Left")
+{
+	 <div class="row pt-5">
+		<div class="col pt-3 pr-5">
+			<img src="@content.Image.Url()" class="img-fluid" alt="Responsive image">
+		</div>
+		<div class="col pt-lg-5 mt-xl-4">
+			<h1 class="text-light pb-3">@content.Title</h1>
+			<p class="text-light">@content.Text</p>
+		</div>
+	</div>
+}
+else
+{
+	<div class="row pt-5">
+		<div class="col  pt-lg-5 mt-xl-4  pr-5">
+			<h1 class="text-light pb-3">@content.Title</h1>
+			<p class="text-light">@content.Text</p>
+		</div>
+		<div class="col pt-3">
+			<img src="@content.Image.Url()" class="img-fluid" alt="Responsive image">
+		</div>
+	</div>
+}

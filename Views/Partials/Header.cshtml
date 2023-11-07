@@ -1,0 +1,43 @@
+﻿@using System.Collections;
+@using Umbraco.Cms.Core.Models
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@{
+    var adminSettingsPage = Umbraco.ContentAtRoot().First(x => x.ContentType.Alias == "siteSettings");
+    
+    IEnumerable<Link> links = adminSettingsPage.Value<IEnumerable<Link>>("menu");
+    // var links = @adminSettingsPage.Value<IEnumerable<Link>>("menu");
+    var typedMediaPickerSingle = @adminSettingsPage.Value("logo");
+}
+
+
+<nav class="navbar navbar-expand-lg navbar-dark border-bottom border-white" style="background-color: black;">
+  <div class="container">
+        @if (typedMediaPickerSingle is MediaWithCrops mediaEntry)
+        {
+            <a class="navbar-brand p-3" href="#"> <img src="@mediaEntry.MediaUrl()" width="200" height="50" alt="Logo"></a>
+        }
+        @*   <a class="navbar-brand p-3" href="#"> <img src="@adminSettingsPage.Value<MediaWithCrops>("logo").Url()" width="200" height="50" alt="Logo"></a> *@
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                @if (links.Any())
+                {
+                    @foreach (var link in links)
+                    {
+                        <h5><a class="nav-item nav-link active" href="@link.Url">@link.Name <span class="sr-only">(current)</span></a></h5>
+                    }
+                
+                }
+               
+                        
+           @*  <h5><a class="nav-item nav-link" href="#">Our Journey</a></h5>
+            <h5><a class="nav-item nav-link" href="#">Contact Us</a></h5> *@
+            </div>
+        </div>
+   </div> 
+   
+</nav>

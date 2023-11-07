@@ -1,0 +1,10 @@
+﻿{
+	"css": [],
+	"javascript": [
+		"~/App_Plugins/BlockListElements/HeroBanner/image.controller.js",
+		"~/App_Plugins/BlockListElements/HeroBanner/richtext.controller.js",
+		"~/App_Plugins/BlockListElements/TwoColumn/twocolumn.controller.js",
+		"~/App_Plugins/BlockListElements/TwoColumn/twocolumn-image.controller.js",
+		"~/App_Plugins/BlockListElements/ContactForm/contactform.controller.js"
+	]
+}
