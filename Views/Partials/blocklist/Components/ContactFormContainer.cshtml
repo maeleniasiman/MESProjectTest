@@ -1,0 +1,18 @@
+﻿@using MESProject.ViewModels;
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	var content = (ContentModels.ContactFormContainer)Model.Content;
+}
+
+<div class="row pt-5">
+	<div class="col pt-3 pr-5 text-center">
+		<h1 class="text-light">@content.ContactFormTitle</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="col pr-5 ">
+		@content.ContactFormContent
+	</div>
+</div>

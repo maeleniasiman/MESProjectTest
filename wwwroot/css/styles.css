@@ -1,0 +1,23 @@
+﻿.txt-contact {
+    background: transparent;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: white;
+}
+
+.txt-contact:focus {
+    background: transparent;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: white;
+}
+
+.txt-contact-content {
+    background: transparent;
+    border-color: white;
+}
+
+    .txt-contact-content:focus {
+        background: transparent;
+        border-color: white;
+    }

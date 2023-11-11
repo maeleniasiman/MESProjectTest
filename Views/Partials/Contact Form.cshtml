@@ -1,0 +1,38 @@
+﻿@model MESProject.ViewModels.ContactFormViewModel
+
+@using MESProject.Controllers;
+ 
+@using (Html.BeginUmbracoForm<ContactFormController>(nameof(ContactFormController.HandleContactForm)))
+{
+    @Html.ValidationSummary()
+    @Html.AntiForgeryToken()
+
+   
+    <div>
+        <div class="form-row">
+            <div class="col pr-5">
+                <span class="field-validation-valid  text-light" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+                @Html.TextBoxFor(m => m.Name, new { @class="form-control text-light form-control-lg txt-contact", @placeholder="Name*" })
+            </div>
+            <div class="col">
+                <span class="field-validation-valid  text-light" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                @Html.TextBoxFor(m => m.Email, new { @class="form-control text-light form-control-lg txt-contact", @placeholder="Email*" })
+
+            </div>
+
+        </div>
+        <div class="form-row mt-5">
+            <div class="col">
+                <span class="field-validation-valid  text-light" data-valmsg-for="Comment" data-valmsg-replace="true"></span>
+                @Html.TextAreaFor(m => m.Comment, new { @class="form-control text-light form-control-lg txt-contact-content", @placeholder="Please share some more details*" })
+
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group mt-5 d-flex flex-row-reverse">
+        <button type="submit" class="btn btn-light btn-lg">Send</button>
+    </div>
+}
+
+
